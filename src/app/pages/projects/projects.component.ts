@@ -48,18 +48,34 @@ export class ProjectsComponent implements OnInit {
   }
 
   filterProjects(filter: string): void {
-    const projectCards = document.querySelectorAll('.project-card');
+    this.activeFilter = filter;
     
-    projectCards.forEach(card => {
-      const category = card.getAttribute('data-category');
-      
-      if (filter === 'all' || category === filter) {
-        card.classList.remove('hidden');
-        card.classList.add('show');
-      } else {
-        card.classList.add('hidden');
-        card.classList.remove('show');
-      }
-    });
+    if (filter === 'all') {
+      this.filteredProjects = this.filteredProjects;
+    } else {
+      this.filteredProjects = this.filteredProjects.filter(project => 
+        project.technologies.some(tech => 
+          tech.toLowerCase().includes(filter.toLowerCase())
+        )
+      );
+    }
+  }
+
+  getProjectCategory(technologies: string[]): string {
+    // Return the first technology as the category for filtering
+    return technologies[0]?.toLowerCase() || 'other';
+  }
+
+  getTechColor(tech: string): string {
+    const colors: { [key: string]: string } = {
+      'angular': '#dd0031',
+      'react': '#61dafb',
+      'javascript': '#f7df1e',
+      'typescript': '#3178c6',
+      'node': '#68a063',
+      'vue': '#4fc08d',
+      'svelte': '#ff3e00'
+    };
+    return colors[tech?.toLowerCase()] || '#6366f1';
   }
 }

@@ -123,6 +123,11 @@
             <span *ngIf="!isSubmitting">Send Message</span>
             <span *ngIf="isSubmitting">Sending...</span>
           </button>
+
+          <!-- Submit message -->
+          <div *ngIf="submitMessage" class="submit-message" [class.success]="submitMessage.includes('Thank you')" [class.error]="submitMessage.includes('error')">
+            {{ submitMessage }}
+          </div>
         </form>
       </div>
     </div>

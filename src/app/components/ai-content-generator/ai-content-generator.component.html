@@ -1,0 +1,92 @@
+<div class="ai-content-generator">
+  <div class="generator-header">
+    <h2>🤖 AI Content Generator</h2>
+    <p>Generate professional content for your portfolio, resume, and projects</p>
+  </div>
+
+  <div class="generator-form">
+    <div class="form-group">
+      <label for="content-type">Content Type</label>
+      <select 
+        id="content-type" 
+        [(ngModel)]="selectedType" 
+        class="form-select"
+      >
+        <option *ngFor="let type of contentTypes" [value]="type.value">
+          {{ type.icon }} {{ type.label }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="input-text">Input Text / Prompt</label>
+      <textarea 
+        id="input-text"
+        [(ngModel)]="inputText"
+        placeholder="Describe what you want to generate... (e.g., 'E-commerce platform with React and Node.js')"
+        class="form-textarea"
+        rows="4"
+      ></textarea>
+    </div>
+
+    <button 
+      class="generate-btn"
+      (click)="generateContent()"
+      [disabled]="!inputText.trim() || isGenerating"
+    >
+      <span *ngIf="!isGenerating">✨ Generate Content</span>
+      <span *ngIf="isGenerating">
+        <div class="spinner"></div>
+        Generating...
+      </span>
+    </button>
+  </div>
+
+  <div class="generated-content" *ngIf="generatedContent.length > 0">
+    <div class="content-header">
+      <h3>Generated Content</h3>
+      <button class="clear-btn" (click)="clearAllContent()">
+        🗑️ Clear All
+      </button>
+    </div>
+
+    <div class="content-list">
+      <div 
+        *ngFor="let item of generatedContent; let i = index" 
+        class="content-item"
+      >
+        <div class="content-item-header">
+          <div class="content-meta">
+            <span class="content-type">{{ item.title }}</span>
+            <span class="content-time">{{ item.timestamp | date:'short' }}</span>
+          </div>
+          <div class="content-actions">
+            <button 
+              class="action-btn copy-btn"
+              (click)="copyToClipboard(item.content)"
+              title="Copy to clipboard"
+            >
+              📋
+            </button>
+            <button 
+              class="action-btn delete-btn"
+              (click)="deleteContent(i)"
+              title="Delete"
+            >
+              🗑️
+            </button>
+          </div>
+        </div>
+        <div class="content-preview">
+          <pre>{{ item.content }}</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="empty-state" *ngIf="generatedContent.length === 0">
+    <div class="empty-icon">🤖</div>
+    <h3>No Generated Content Yet</h3>
+    <p>Start by selecting a content type and entering your prompt above!</p>
+  </div>
+</div>

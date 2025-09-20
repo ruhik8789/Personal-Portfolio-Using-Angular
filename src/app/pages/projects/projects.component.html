@@ -1,0 +1,245 @@
+<section class="projects">
+  <div class="container">
+    <div class="projects__header">
+      <h1 class="projects__title">My Projects</h1>
+      <p class="projects__subtitle">A showcase of my recent work and side projects</p>
+    </div>
+
+    <div class="projects__filter">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="angular">Angular</button>
+      <button class="filter-btn" data-filter="react">React</button>
+      <button class="filter-btn" data-filter="javascript">JavaScript</button>
+    </div>
+
+    <div class="projects__grid">
+      <div class="project-card" data-category="angular">
+        <div class="project-card__image">
+          <div class="image-placeholder">
+            <svg width="100%" height="200" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="200" fill="#f0f0f0"/>
+              <circle cx="200" cy="100" r="60" fill="#dd0031"/>
+              <text x="200" y="110" text-anchor="middle" fill="white" font-size="24" font-weight="bold">Angular</text>
+            </svg>
+          </div>
+          <div class="project-card__overlay">
+            <a href="#" class="project-link" target="_blank">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 6H6C4.89543 6 4 6.89543 4 8V18C4 19.1046 4.89543 20 6 20H16C17.1046 20 18 19.1046 18 18V14M14 4H20M20 4V10M20 4L10 14" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="#" class="project-link" target="_blank">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 19C-1 13 3.5 6 9 6C14.5 6 19 13 9 19Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9 10C10.1046 10 11 9.10457 11 8C11 6.89543 10.1046 6 9 6C7.89543 6 7 6.89543 7 8C7 9.10457 7.89543 10 9 10Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="project-card__content">
+          <h3 class="project-card__title">E-Commerce Platform</h3>
+          <p class="project-card__description">
+            A full-featured e-commerce platform built with Angular, featuring user authentication, 
+            product catalog, shopping cart, and payment integration.
+          </p>
+          <div class="project-card__tech">
+            <span class="tech-tag">Angular</span>
+            <span class="tech-tag">TypeScript</span>
+            <span class="tech-tag">Firebase</span>
+            <span class="tech-tag">Stripe</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" data-category="react">
+        <div class="project-card__image">
+          <div class="image-placeholder">
+            <svg width="100%" height="200" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="200" fill="#f0f0f0"/>
+              <circle cx="200" cy="100" r="60" fill="#61dafb"/>
+              <text x="200" y="110" text-anchor="middle" fill="white" font-size="20" font-weight="bold">React</text>
+            </svg>
+          </div>
+          <div class="project-card__overlay">
+            <a href="#" class="project-link" target="_blank">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 6H6C4.89543 6 4 6.89543 4 8V18C4 19.1046 4.89543 20 6 20H16C17.1046 20 18 19.1046 18 18V14M14 4H20M20 4V10M20 4L10 14" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="#" class="project-link" target="_blank">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 19C-1 13 3.5 6 9 6C14.5 6 19 13 9 19Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9 10C10.1046 10 11 9.10457 11 8C11 6.89543 10.1046 6 9 6C7.89543 6 7 6.89543 7 8C7 9.10457 7.89543 10 9 10Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="project-card__content">
+          <h3 class="project-card__title">Task Management App</h3>
+          <p class="project-card__description">
+            A collaborative task management application with real-time updates, drag-and-drop functionality, 
+            and team collaboration features.
+          </p>
+          <div class="project-card__tech">
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">Redux</span>
+            <span class="tech-tag">Socket.io</span>
+            <span class="tech-tag">MongoDB</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" data-category="javascript">
+        <div class="project-card__image">
+          <div class="image-placeholder">
+            <svg width="100%" height="200" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="200" fill="#f0f0f0"/>
+              <rect x="150" y="50" width="100" height="100" fill="#f7df1e" rx="10"/>
+              <text x="200" y="110" text-anchor="middle" fill="black" font-size="24" font-weight="bold">JS</text>
+            </svg>
+          </div>
+          <div class="project-card__overlay">
+            <a href="#" class="project-link" target="_blank">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 6H6C4.89543 6 4 6.89543 4 8V18C4 19.1046 4.89543 20 6 20H16C17.1046 20 18 19.1046 18 18V14M14 4H20M20 4V10M20 4L10 14" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="#" class="project-link" target="_blank">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 19C-1 13 3.5 6 9 6C14.5 6 19 13 9 19Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9 10C10.1046 10 11 9.10457 11 8C11 6.89543 10.1046 6 9 6C7.89543 6 7 6.89543 7 8C7 9.10457 7.89543 10 9 10Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="project-card__content">
+          <h3 class="project-card__title">Weather Dashboard</h3>
+          <p class="project-card__description">
+            A responsive weather dashboard with location-based forecasts, interactive maps, 
+            and detailed weather analytics using multiple APIs.
+          </p>
+          <div class="project-card__tech">
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">API</span>
+            <span class="tech-tag">Chart.js</span>
+            <span class="tech-tag">CSS3</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" data-category="angular">
+        <div class="project-card__image">
+          <div class="image-placeholder">
+            <svg width="100%" height="200" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="200" fill="#f0f0f0"/>
+              <circle cx="200" cy="100" r="60" fill="#1976d2"/>
+              <text x="200" y="110" text-anchor="middle" fill="white" font-size="18" font-weight="bold">Blog</text>
+            </svg>
+          </div>
+          <div class="project-card__overlay">
+            <a href="#" class="project-link" target="_blank">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 6H6C4.89543 6 4 6.89543 4 8V18C4 19.1046 4.89543 20 6 20H16C17.1046 20 18 19.1046 18 18V14M14 4H20M20 4V10M20 4L10 14" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="#" class="project-link" target="_blank">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 19C-1 13 3.5 6 9 6C14.5 6 19 13 9 19Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9 10C10.1046 10 11 9.10457 11 8C11 6.89543 10.1046 6 9 6C7.89543 6 7 6.89543 7 8C7 9.10457 7.89543 10 9 10Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="project-card__content">
+          <h3 class="project-card__title">Personal Blog</h3>
+          <p class="project-card__description">
+            A modern blog platform with CMS functionality, markdown support, 
+            and SEO optimization built with Angular and Node.js.
+          </p>
+          <div class="project-card__tech">
+            <span class="tech-tag">Angular</span>
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">MongoDB</span>
+            <span class="tech-tag">Markdown</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" data-category="react">
+        <div class="project-card__image">
+          <div class="image-placeholder">
+            <svg width="100%" height="200" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="200" fill="#f0f0f0"/>
+              <circle cx="200" cy="100" r="60" fill="#61dafb"/>
+              <text x="200" y="110" text-anchor="middle" fill="white" font-size="16" font-weight="bold">Chat</text>
+            </svg>
+          </div>
+          <div class="project-card__overlay">
+            <a href="#" class="project-link" target="_blank">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 6H6C4.89543 6 4 6.89543 4 8V18C4 19.1046 4.89543 20 6 20H16C17.1046 20 18 19.1046 18 18V14M14 4H20M20 4V10M20 4L10 14" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="#" class="project-link" target="_blank">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 19C-1 13 3.5 6 9 6C14.5 6 19 13 9 19Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9 10C10.1046 10 11 9.10457 11 8C11 6.89543 10.1046 6 9 6C7.89543 6 7 6.89543 7 8C7 9.10457 7.89543 10 9 10Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="project-card__content">
+          <h3 class="project-card__title">Real-time Chat App</h3>
+          <p class="project-card__description">
+            A real-time messaging application with group chat, file sharing, 
+            and emoji reactions using WebSocket technology.
+          </p>
+          <div class="project-card__tech">
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">Socket.io</span>
+            <span class="tech-tag">Express</span>
+            <span class="tech-tag">JWT</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" data-category="javascript">
+        <div class="project-card__image">
+          <div class="image-placeholder">
+            <svg width="100%" height="200" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="200" fill="#f0f0f0"/>
+              <rect x="150" y="50" width="100" height="100" fill="#f7df1e" rx="10"/>
+              <text x="200" y="110" text-anchor="middle" fill="black" font-size="14" font-weight="bold">Game</text>
+            </svg>
+          </div>
+          <div class="project-card__overlay">
+            <a href="#" class="project-link" target="_blank">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 6H6C4.89543 6 4 6.89543 4 8V18C4 19.1046 4.89543 20 6 20H16C17.1046 20 18 19.1046 18 18V14M14 4H20M20 4V10M20 4L10 14" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="#" class="project-link" target="_blank">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 19C-1 13 3.5 6 9 6C14.5 6 19 13 9 19Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9 10C10.1046 10 11 9.10457 11 8C11 6.89543 10.1046 6 9 6C7.89543 6 7 6.89543 7 8C7 9.10457 7.89543 10 9 10Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="project-card__content">
+          <h3 class="project-card__title">Memory Game</h3>
+          <p class="project-card__description">
+            An interactive memory card game with multiple difficulty levels, 
+            score tracking, and smooth animations using vanilla JavaScript.
+          </p>
+          <div class="project-card__tech">
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">CSS3</span>
+            <span class="tech-tag">HTML5</span>
+            <span class="tech-tag">Canvas</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

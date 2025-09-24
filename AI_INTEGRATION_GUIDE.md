@@ -90,7 +90,7 @@ You can customize the AI assistant's personality by modifying:
 ```typescript
 // In ai.service.ts
 private portfolioData = {
-  name: "Your Name",
+  name: "Raghav Bharadwaj",
   title: "Full Stack Developer",
   skills: ["Angular", "React", "Node.js", "TypeScript"],
   // ... customize your data

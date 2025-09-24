@@ -39,7 +39,7 @@ export class AiService {
 
   // Portfolio data for AI context
   private portfolioData = {
-    name: "Your Name",
+    name: "Raghav Bharadwaj",
     title: "Full Stack Developer",
     skills: ["Angular", "React", "Node.js", "TypeScript", "Firebase", "Python", "AI/ML"],
     experience: "5+ years",

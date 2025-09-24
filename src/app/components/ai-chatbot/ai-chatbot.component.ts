@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-ai-chatbot',
   templateUrl: './ai-chatbot.component.html',
-  styleUrls: ['./ai-chatbot.component.scss']
+  styleUrls: ['./ai-chatbot.component.css']
 })
 export class AiChatbotComponent implements OnInit, OnDestroy {
   @ViewChild('chatContainer', { static: false }) chatContainer!: ElementRef;

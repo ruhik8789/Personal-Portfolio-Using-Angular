@@ -11,7 +11,7 @@ export interface GeneratedContent {
 @Component({
   selector: 'app-ai-content-generator',
   templateUrl: './ai-content-generator.component.html',
-  styleUrls: ['./ai-content-generator.component.scss']
+  styleUrls: ['./ai-content-generator.component.css']
 })
 export class AiContentGeneratorComponent implements OnInit {
   selectedType: string = 'project_description';
@@ -95,7 +95,7 @@ export class AiContentGeneratorComponent implements OnInit {
   }
 
   private generateCoverLetter(input: string): string {
-    return `**Cover Letter for ${input} Position:**\n\nDear Hiring Manager,\n\nI am writing to express my strong interest in the ${input} position at your company. With over 5 years of experience in full-stack development and a passion for creating innovative solutions, I am confident that I would be a valuable addition to your team.\n\n**Why I'm a Great Fit:**\n• Proven track record of delivering high-quality software solutions\n• Strong technical skills in modern web technologies\n• Excellent problem-solving and communication abilities\n• Passionate about continuous learning and professional growth\n\n**What I Can Bring:**\n• Expertise in ${input} development\n• Experience with agile methodologies\n• Strong collaboration and leadership skills\n• Commitment to writing clean, maintainable code\n\nI am excited about the opportunity to contribute to your team and help drive innovation in the ${input} space. I would welcome the chance to discuss how my skills and experience align with your needs.\n\nBest regards,\n[Your Name]`;
+    return `**Cover Letter for ${input} Position:**\n\nDear Hiring Manager,\n\nI am writing to express my strong interest in the ${input} position at your company. With over 5 years of experience in full-stack development and a passion for creating innovative solutions, I am confident that I would be a valuable addition to your team.\n\n**Why I'm a Great Fit:**\n• Proven track record of delivering high-quality software solutions\n• Strong technical skills in modern web technologies\n• Excellent problem-solving and communication abilities\n• Passionate about continuous learning and professional growth\n\n**What I Can Bring:**\n• Expertise in ${input} development\n• Experience with agile methodologies\n• Strong collaboration and leadership skills\n• Commitment to writing clean, maintainable code\n\nI am excited about the opportunity to contribute to your team and help drive innovation in the ${input} space. I would welcome the chance to discuss how my skills and experience align with your needs.\n\nBest regards,\n[Raghav Bharadwaj]`;
   }
 
   private getContentTitle(type: string): string {

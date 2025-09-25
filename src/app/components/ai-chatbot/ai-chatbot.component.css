@@ -33,7 +33,7 @@
   bottom: 100px;
   right: 30px;
   width: 400px;
-  height: 600px;
+  height: 525px;
   background: white;
   border-radius: 20px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
@@ -42,7 +42,7 @@
   transform: translateY(100%) scale(0.8);
   opacity: 0;
   transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  z-index: 999;
+  z-index: 9999;
   overflow: hidden;
 }
 .chatbot-panel.open {

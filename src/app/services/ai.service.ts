@@ -99,6 +99,15 @@ export class AiService {
         case 'skill_analysis':
           response = await this.handleSkillAnalysis(userMessage, intent);
           break;
+        case 'skills_question':
+          response = await this.handleSkillsQuestion();
+          break;
+        case 'experience_question':
+          response = await this.handleExperienceQuestion();
+          break;
+        case 'project_details':
+          response = await this.handleProjectDetails(userMessage);
+          break;
         case 'general_question':
           response = await this.handleGeneralQuestion(userMessage);
           break;
@@ -127,7 +136,25 @@ export class AiService {
 
   private async analyzeIntent(message: string): Promise<any> {
     const lowerMessage = message.toLowerCase();
-    
+
+    // Direct Q&A patterns
+    const asksSkills = /(what\s+skills|your\s+skills|skills\s+do\s+you\s+have|list\s+skills)/i.test(lowerMessage);
+    if (asksSkills) {
+      return { type: 'skills_question', keywords: this.extractKeywords(message) };
+    }
+
+    const asksExperience = /(how\s+long|years\s+of\s+experience|experience\s+do\s+you\s+have|total\s+experience)/i.test(lowerMessage);
+    if (asksExperience) {
+      return { type: 'experience_question', keywords: this.extractKeywords(message) };
+    }
+
+    // Project details: mentions a known project title
+    const mentionsProjectByName = this.portfolioData.projects.some(p => lowerMessage.includes(p.title.toLowerCase()));
+    if (mentionsProjectByName || /tell\s+me\s+about\s+|details\s+about\s+/.test(lowerMessage)) {
+      return { type: 'project_details', keywords: this.extractKeywords(message) };
+    }
+
+    // Category intents
     if (lowerMessage.includes('project') || lowerMessage.includes('work') || lowerMessage.includes('portfolio')) {
       return { type: 'project_inquiry', keywords: this.extractKeywords(message) };
     }
@@ -144,10 +171,13 @@ export class AiService {
   }
 
   private extractKeywords(message: string): string[] {
+    const lower = message.toLowerCase();
     const techKeywords = ['angular', 'react', 'node', 'python', 'javascript', 'typescript', 'firebase', 'ai', 'ml'];
-    return techKeywords.filter(keyword => 
-      message.toLowerCase().includes(keyword)
-    );
+    const projectTokens = this.portfolioData.projects
+      .flatMap(p => p.title.toLowerCase().split(/[^a-z0-9]+/g))
+      .filter(t => t && t.length > 2);
+    const all = Array.from(new Set([...techKeywords, ...projectTokens]));
+    return all.filter(keyword => lower.includes(keyword));
   }
 
   private async handleProjectInquiry(message: string, intent: any): Promise<ChatMessage> {
@@ -229,19 +259,67 @@ export class AiService {
     };
   }
 
-  private async handleGeneralQuestion(message: string): Promise<ChatMessage> {
-    // For demo purposes, return contextual responses
-    const responses = [
-      `I'm a ${this.portfolioData.title} with ${this.portfolioData.experience} of experience. I specialize in ${this.portfolioData.skills.slice(0, 3).join(', ')} and more!`,
-      `I'm passionate about ${this.portfolioData.interests.join(', ')}. Feel free to ask about my projects or skills!`,
-      `I love building innovative solutions using modern technologies. What specific area interests you?`
-    ];
+  private async handleSkillsQuestion(): Promise<ChatMessage> {
+    const skills = this.portfolioData.skills.join(', ');
+    return {
+      id: Date.now().toString(),
+      content: `My core skills include: ${skills}.\n\nYou can ask for an analysis of any skill to see strengths, growth areas, and resources.`,
+      isUser: false,
+      timestamp: new Date(),
+      type: 'text'
+    };
+  }
 
-    const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+  private async handleExperienceQuestion(): Promise<ChatMessage> {
+    return {
+      id: Date.now().toString(),
+      content: `I have ${this.portfolioData.experience} of professional experience as a ${this.portfolioData.title}.` ,
+      isUser: false,
+      timestamp: new Date(),
+      type: 'text'
+    };
+  }
+
+  private async handleProjectDetails(message: string): Promise<ChatMessage> {
+    const lower = message.toLowerCase();
+    // Simple fuzzy: score by number of title tokens appearing in message
+    const scored = this.portfolioData.projects.map(p => {
+      const tokens = p.title.toLowerCase().split(/[^a-z0-9]+/g).filter(t => t);
+      const score = tokens.reduce((acc, t) => acc + (lower.includes(t) ? 1 : 0), 0);
+      return { project: p, score };
+    }).sort((a, b) => b.score - a.score);
+
+    const top = scored[0];
+    if (top && top.score > 0) {
+      const p = top.project as { title: string; description: string; technologies: string[] };
+      return {
+        id: Date.now().toString(),
+        content: `**${p.title}**\n${p.description}\n\nTechnologies: ${p.technologies.join(', ')}\n\nWould you like to know about challenges, architecture, or results?`,
+        isUser: false,
+        timestamp: new Date(),
+        type: 'text',
+        metadata: { project: p }
+      };
+    }
+
+    // If no fuzzy match, list available projects
+    return {
+      id: Date.now().toString(),
+      content: `I couldn't identify the project. Here are my projects:\n\n${this.portfolioData.projects.map(p => `• **${p.title}**: ${p.description}`).join('\n')}\n\nPlease mention the project name for details.`,
+      isUser: false,
+      timestamp: new Date(),
+      type: 'text',
+      metadata: { projects: this.portfolioData.projects }
+    };
+  }
+
+  private async handleGeneralQuestion(message: string): Promise<ChatMessage> {
+    // Deterministic, context-aware fallback
+    const content = `I'm a ${this.portfolioData.title} with ${this.portfolioData.experience}.\nSkills: ${this.portfolioData.skills.join(', ')}.\nProjects include ${this.portfolioData.projects.map(p => p.title).join(', ')}.\nAsk me: "What are your skills?", "Tell me about ${this.portfolioData.projects[0].title}", or "How many years of experience do you have?"`;
 
     return {
       id: Date.now().toString(),
-      content: randomResponse,
+      content,
       isUser: false,
       timestamp: new Date(),
       type: 'text'

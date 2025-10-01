@@ -12,7 +12,8 @@ export class AiToolsComponent implements OnInit {
     { id: 'content-generator', label: 'Content Generator', icon: '🤖' },
     { id: 'skill-analyzer', label: 'Skill Analyzer', icon: '🔍' },
     { id: 'resume-builder', label: 'Resume Builder', icon: '📄' },
-    { id: 'project-ideas', label: 'Project Ideas', icon: '💡' }
+    { id: 'project-ideas', label: 'Project Ideas', icon: '💡' },
+    { id: 'download-portfolio', label: 'Download Portfolio', icon: '⬇️' }
   ];
 
   constructor() { }

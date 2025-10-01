@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 export interface ChatMessage {
   id: string;
@@ -31,9 +30,6 @@ export interface SkillAnalysis {
   providedIn: 'root'
 })
 export class AiService {
-  private apiUrl = 'https://api.openai.com/v1/chat/completions';
-  private apiKey = 'your-openai-api-key'; // Replace with your actual API key
-  
   private chatHistory = new BehaviorSubject<ChatMessage[]>([]);
   public chatHistory$ = this.chatHistory.asObservable();
 
@@ -58,8 +54,13 @@ export class AiService {
     interests: ["Web Development", "AI/ML", "Cloud Computing", "Open Source"]
   };
 
-  constructor(private http: HttpClient) {
+  constructor() {
     this.initializeChat();
+  }
+
+  // Public accessor for export features
+  getPortfolio(): { name: string; title: string; experience: string; skills: string[]; projects: { title: string; technologies: string[]; description: string }[]; interests: string[] } {
+    return JSON.parse(JSON.stringify(this.portfolioData));
   }
 
   private initializeChat(): void {
@@ -346,6 +347,28 @@ export class AiService {
       content: `I'm continuously learning and improving my ${skill} skills. What specific aspect would you like to discuss?`,
       priority: 'medium'
     };
+  }
+
+  // Local resume/cover letter generators
+  generateResumeSection(input: string): string {
+    const summary = `Professional Summary\n${this.portfolioData.title} with ${this.portfolioData.experience}. Focus: ${this.portfolioData.skills.slice(0, 5).join(', ')}.`;
+    const achievements = `Key Achievements\n- Built ${this.portfolioData.projects[0].title}\n- Created ${this.portfolioData.projects[1].title}`;
+    const tailored = input ? `\nTarget Role Context\n- ${input}` : '';
+    return `${summary}\n\n${achievements}${tailored}`;
+  }
+
+  generateCoverLetter(input: string): string {
+    const intro = `Dear Hiring Manager,`;
+    const body = `I am excited to apply for this opportunity. As a ${this.portfolioData.title} with ${this.portfolioData.experience}, I have delivered projects such as ${this.portfolioData.projects.map(p => p.title).join(', ')} using ${this.portfolioData.skills.join(', ')}.`;
+    const fit = input ? `\n\nAlignment\nYour description mentions: ${input}. My background aligns strongly with these requirements.` : '';
+    const close = `\n\nSincerely,\n${this.portfolioData.name}`;
+    return `${intro}\n\n${body}${fit}${close}`;
+  }
+
+  // Local project ideas generator with steps
+  generateProjectIdeas(keywords: string[]): ProjectRecommendation[] {
+    const ideas = this.generateProjectRecommendations(keywords);
+    return ideas;
   }
 
   private generateProjectRecommendations(keywords: string[]): ProjectRecommendation[] {

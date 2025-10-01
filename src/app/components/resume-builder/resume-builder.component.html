@@ -1,0 +1,31 @@
+<div class="resume-builder">
+  <div class="rb-header">
+    <h2>📄 AI Resume Builder</h2>
+    <p>Paste a job description to tailor your resume section and cover letter.</p>
+  </div>
+
+  <div class="rb-form">
+    <textarea class="rb-textarea" rows="6" [(ngModel)]="jobDescription" placeholder="Paste job description (optional but recommended)"></textarea>
+    <div class="rb-actions">
+      <button class="rb-btn" (click)="generate()" [disabled]="isGenerating">Generate</button>
+      <button class="rb-btn ghost" (click)="clear()" [disabled]="!jobDescription && !resumeOutput && !coverLetterOutput">Clear</button>
+    </div>
+  </div>
+
+  <div class="rb-results" *ngIf="resumeOutput || coverLetterOutput">
+    <div class="rb-card">
+      <div class="rb-card-title">Resume Section</div>
+      <pre>{{ resumeOutput }}</pre>
+    </div>
+    <div class="rb-card">
+      <div class="rb-card-title">Cover Letter</div>
+      <pre>{{ coverLetterOutput }}</pre>
+    </div>
+  </div>
+
+  <div class="rb-empty" *ngIf="!resumeOutput && !coverLetterOutput">
+    <small>Tip: Tailoring to the JD improves outcomes.</small>
+  </div>
+</div>
+
+

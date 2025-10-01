@@ -1,0 +1,10 @@
+.project-ideas { display: grid; gap: 16px; }
+.pi-form { display: flex; gap: 8px; }
+.pi-input { flex: 1; padding: 10px 12px; border: 1px solid #e5e7eb; border-radius: 8px; }
+.pi-btn { padding: 10px 14px; border-radius: 8px; background: #667eea; color: white; border: none; cursor: pointer; }
+.pi-btn.ghost { background: #f3f4f6; color: #374151; }
+.pi-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+.pi-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; padding: 12px; }
+.pi-title { font-weight: 700; margin-bottom: 6px; }
+.pi-desc, .pi-techs, .pi-meta { font-size: 0.95rem; margin-bottom: 4px; }
+

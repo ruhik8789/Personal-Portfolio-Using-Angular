@@ -1,0 +1,23 @@
+<div class="portfolio-export">
+  <div class="pe-header">
+    <h2>⬇️ Download Portfolio</h2>
+    <p>Export a well-structured snapshot of this portfolio.</p>
+  </div>
+
+  <div class="pe-actions">
+    <button class="pe-btn" (click)="downloadJson()">Download JSON</button>
+    <button class="pe-btn" (click)="downloadMarkdown()">Download Markdown</button>
+    <button class="pe-btn" (click)="downloadHtml()">Download HTML</button>
+    <button class="pe-btn ghost" (click)="printPdf()">Print to PDF</button>
+    <button class="pe-btn ghost" (click)="refresh()">Refresh</button>
+  </div>
+
+  <div class="pe-preview">
+    <div class="pe-card">
+      <div class="pe-card-title">Markdown Preview</div>
+      <pre>{{ mdPreview }}</pre>
+    </div>
+  </div>
+</div>
+
+

@@ -25,71 +25,22 @@
 
       <!-- Skill Analyzer Tab -->
       <div *ngIf="activeTab === 'skill-analyzer'" class="tab-content">
-        <div class="feature-coming-soon">
-          <div class="coming-soon-icon">🔍</div>
-          <h3>Skill Analyzer</h3>
-          <p>AI-powered analysis of your technical skills with personalized improvement recommendations and learning paths.</p>
-          <div class="feature-preview">
-            <div class="preview-card">
-              <h4>Skill Assessment</h4>
-              <p>Get detailed analysis of your current skill levels</p>
-            </div>
-            <div class="preview-card">
-              <h4>Learning Paths</h4>
-              <p>Personalized recommendations for skill development</p>
-            </div>
-            <div class="preview-card">
-              <h4>Progress Tracking</h4>
-              <p>Monitor your learning journey and achievements</p>
-            </div>
-          </div>
-        </div>
+        <app-skill-analyzer></app-skill-analyzer>
       </div>
 
       <!-- Resume Builder Tab -->
       <div *ngIf="activeTab === 'resume-builder'" class="tab-content">
-        <div class="feature-coming-soon">
-          <div class="coming-soon-icon">📄</div>
-          <h3>AI Resume Builder</h3>
-          <p>Generate tailored resumes and cover letters for different job applications using AI.</p>
-          <div class="feature-preview">
-            <div class="preview-card">
-              <h4>Dynamic Resumes</h4>
-              <p>Generate customized resumes for each application</p>
-            </div>
-            <div class="preview-card">
-              <h4>Cover Letters</h4>
-              <p>AI-written cover letters tailored to job descriptions</p>
-            </div>
-            <div class="preview-card">
-              <h4>ATS Optimization</h4>
-              <p>Optimize resumes for Applicant Tracking Systems</p>
-            </div>
-          </div>
-        </div>
+        <app-resume-builder></app-resume-builder>
       </div>
 
       <!-- Project Ideas Tab -->
       <div *ngIf="activeTab === 'project-ideas'" class="tab-content">
-        <div class="feature-coming-soon">
-          <div class="coming-soon-icon">💡</div>
-          <h3>AI Project Ideas Generator</h3>
-          <p>Get personalized project ideas based on your skills, interests, and career goals.</p>
-          <div class="feature-preview">
-            <div class="preview-card">
-              <h4>Personalized Ideas</h4>
-              <p>Projects tailored to your skill level and interests</p>
-            </div>
-            <div class="preview-card">
-              <h4>Technology Stack</h4>
-              <p>Recommended technologies and frameworks</p>
-            </div>
-            <div class="preview-card">
-              <h4>Implementation Guide</h4>
-              <p>Step-by-step guidance for project development</p>
-            </div>
-          </div>
-        </div>
+        <app-project-ideas></app-project-ideas>
+      </div>
+
+      <!-- Download Portfolio Tab -->
+      <div *ngIf="activeTab === 'download-portfolio'" class="tab-content">
+        <app-portfolio-export></app-portfolio-export>
       </div>
     </div>
   </div>

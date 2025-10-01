@@ -1,0 +1,33 @@
+<div class="skill-analyzer">
+  <div class="sa-header">
+    <h2>🔍 Skill Analyzer</h2>
+    <p>Enter a skill to get strengths, growth areas, and resources.</p>
+  </div>
+
+  <div class="sa-form">
+    <input 
+      class="sa-input" 
+      type="text" 
+      placeholder="e.g., Angular, React, TypeScript, AI"
+      [(ngModel)]="skillInput"
+    />
+    <button class="sa-btn" (click)="analyze()" [disabled]="!skillInput.trim() || isAnalyzing">
+      <span *ngIf="!isAnalyzing">Analyze</span>
+      <span *ngIf="isAnalyzing">Analyzing...</span>
+    </button>
+    <button class="sa-btn ghost" (click)="clear()" [disabled]="!skillInput && !result">Clear</button>
+  </div>
+
+  <div class="sa-result" *ngIf="result">
+    <div class="sa-meta">
+      <span class="priority" [attr.data-priority]="result.priority">Priority: {{ result.priority | uppercase }}</span>
+    </div>
+    <pre class="sa-content">{{ result.content }}</pre>
+  </div>
+
+  <div class="sa-empty" *ngIf="!result">
+    <small>Tip: Try common skills like Angular, React, or AI.</small>
+  </div>
+</div>
+
+

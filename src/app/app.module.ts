@@ -14,6 +14,10 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { AiToolsComponent } from './pages/ai-tools/ai-tools.component';
 import { AiChatbotComponent } from './components/ai-chatbot/ai-chatbot.component';
 import { AiContentGeneratorComponent } from './components/ai-content-generator/ai-content-generator.component';
+import { SkillAnalyzerComponent } from './components/skill-analyzer/skill-analyzer.component';
+import { ResumeBuilderComponent } from './components/resume-builder/resume-builder.component';
+import { ProjectIdeasComponent } from './components/project-ideas/project-ideas.component';
+import { PortfolioExportComponent } from './components/portfolio-export/portfolio-export.component';
 
 // Firebase imports
 import { FirebaseService } from './services/firebase.service';
@@ -30,7 +34,11 @@ import { AiService } from './services/ai.service';
     ContactComponent,
     AiToolsComponent,
     AiChatbotComponent,
-    AiContentGeneratorComponent
+    AiContentGeneratorComponent,
+    SkillAnalyzerComponent,
+    ResumeBuilderComponent,
+    ProjectIdeasComponent,
+    PortfolioExportComponent
   ],
   imports: [
     BrowserModule,

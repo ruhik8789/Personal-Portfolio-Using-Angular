@@ -1,0 +1,27 @@
+<div class="project-ideas">
+  <div class="pi-header">
+    <h2>💡 Project Ideas</h2>
+    <p>Describe your interests/stack to get tailored project ideas.</p>
+  </div>
+
+  <div class="pi-form">
+    <input class="pi-input" [(ngModel)]="interestInput" placeholder="e.g., Angular, Firebase, AI" />
+    <button class="pi-btn" (click)="generateIdeas()" [disabled]="isLoading || !interestInput.trim()">Generate</button>
+    <button class="pi-btn ghost" (click)="clear()" [disabled]="!interestInput && ideas.length === 0">Clear</button>
+  </div>
+
+  <div class="pi-list" *ngIf="ideas.length > 0">
+    <div class="pi-card" *ngFor="let idea of ideas">
+      <div class="pi-title">{{ idea.title }}</div>
+      <div class="pi-desc">{{ idea.description }}</div>
+      <div class="pi-techs">Tech: {{ idea.technologies.join(', ') }}</div>
+      <div class="pi-meta">Why: {{ idea.reason }} • Match: {{ idea.matchScore }}%</div>
+    </div>
+  </div>
+
+  <div class="pi-empty" *ngIf="ideas.length === 0">
+    <small>Tip: Add at least one technology or interest.</small>
+  </div>
+</div>
+
+
